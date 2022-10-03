@@ -1,0 +1,40 @@
+#---------------------------------------------------------------------
+spring.profiles.active: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+    location: classpath:application-dev.yml
+    name: application-dev.yml
+    additional-location:
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+    location: classpath:application-test.yml
+    name: application-test.yml
+    additional-location:
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+    location: classpath:application-prod.yml
+    name: application-prod.yml
+    additional-location:
+---
+#---------------------------------------------------------------------
+
+springdoc:
+  api-docs.path: /api-docs
+  swagger-ui.path: /swagger-ui-custom.html
+  version: v1.0
+
+Info.contact: 
+  name: "Prashant Mishra"
+  email: email@email.com
+  url: https://voyager.com/
+  

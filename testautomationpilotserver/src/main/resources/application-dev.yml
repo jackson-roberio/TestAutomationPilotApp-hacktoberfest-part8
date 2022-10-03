@@ -1,0 +1,48 @@
+#---------------------------------------------------------------------
+management:
+  security:
+    enabled: false
+
+#---------------------------------------------------------------------
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=pilotautomation
+    username: postgres
+    password: admin
+    hikari:
+     maximum-pool-size: 15
+     minimum-idle: 15
+     auto-commit: true
+  jpa:
+    hibernate:
+      ddl-auto: create #update #none #create
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: pilotautomation
+  liquibase:
+    enabled: true
+    change-log: classpath:liquibase/changelog/liquibase-changeLog.xml
+  devtools:
+    add-properties: true
+    livereload: 
+      enabled: true
+      port: 35729
+    remote.restart.enabled: true
+    
+    
+#---------------------------------------------------------------------
+
+server:
+  host: locahost
+  port: 8443
+  
+#---------------------------------------------------------------------
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
+
+#---------------------------------------------------------------------
